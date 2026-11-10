@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #151516;
+  --color-text: #f9fafb;
+}
+
+body {
+  @apply bg-brand-primary text-text;
+}

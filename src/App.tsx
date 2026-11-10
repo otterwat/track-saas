@@ -1,12 +1,14 @@
-import Message from './Message';
+import Heading from './components/Heading';
 
 function App() {
+	const username = 'Otterwat';
+
 	return (
 		<main>
-				<Message className="font-bold text-center text-6xl">
-      	Hello World!
-    		</Message>
+			<div>
+				<Heading className='font-bold text-center text-6xl' title={`Hello ${username}!`}/>
 				<h2 className='font-bold text-center text-4xl'>Welcome to Track SaaS</h2>
+			</div>
 		</main>
 	);
 }
