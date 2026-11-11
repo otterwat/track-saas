@@ -1,39 +1,18 @@
-import Heading from './components/Heading';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
-	const username = 'Otterwat';
-
-	return (
-		<main>
-			<Heading 
-				title={`Hello ${username}!`} 
-				subheading='Welcome to Track SaaS' 
-				description='This is a simple Track SaaS application where you can manage your running and improvement efficiently.'
-			/>
-
-			<div className = 'w-fit mx-auto'>
-				<div className = 'authentication-ui'>
-					<button>login</button>
-					<button>signup</button>	
-				</div>
-
-				<form className = 'authentication-form'>
-					<input
-						type='text'
-						placeholder='username'
-					></input>
-					<input
-						type='password'
-						placeholder='password'
-					></input>
-					
-					<button type='submit'>login/signup</button>
-				</form>
-			</div>
-			
-			
-		</main>
-	);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

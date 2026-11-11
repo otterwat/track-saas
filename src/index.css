@@ -13,7 +13,7 @@ body {
 }
 
 button {
-	@apply bg-purple-900 hover:bg-purple-950 text-purple-100 font-semibold py-2 px-4 rounded-lg shadow-2xs;
+	@apply bg-purple-900 text-purple-100 font-semibold rounded-lg shadow-2xs;
 }
 
 p {
@@ -22,19 +22,11 @@ p {
 
 /* -- pseudo classes -- */
 button:hover {
+	@apply bg-purple-950;
 	cursor: pointer;
 }
 
-/* --classes-- */
-.authentication-ui {
-	@apply inline-grid grid-cols-2 w-fit mx-auto;
-  }
-
-.authentication-ui button {
-	@apply inline-flex items-center justify-center mx-5 mt-5 px-10 py-3 text-2xl;
-}
-
-
+/*
 .authentication-form input {
 	@apply block w-full my-4 border border-white rounded px-3 py-2.5 text-left;
 }
@@ -42,3 +34,4 @@ button:hover {
 .authentication-form button {
 	@apply flex justify-center w-full my-5 py-3 text-2xl;
 }
+*/

@@ -2,11 +2,11 @@ type HeadingProps = {title : string; subheading?: string; description?: string;}
 
 function Heading({ title, subheading, description }: HeadingProps) {
 	return (
-		<>
-		<h1 className='font-bold text-6xl ml-1.5'>{title}</h1>
+		<div>
+			<h1 className='flex items-center justify-between font-bold text-6xl ml-1.5'>{title}</h1>
 			<h2 className='font-bold text-4xl ml-1.5'>{subheading}</h2>
 			<p className='ml-1.5'>{description}</p>
-		</>
+		</div>
 	);
 }
 
