@@ -1,10 +1,30 @@
 @import "tailwindcss";
 
+/* --theme-- */
 @theme {
-  --color-brand-primary: #151516;
-  --color-text: #f9fafb;
+	--color-brand-primary: #151516;
+	--color-text: #f9fafb;
+	--font-roboto: "Roboto", sans-serif;
 }
 
+/* --general item customs-- */
 body {
-  @apply bg-brand-primary text-text;
+	@apply bg-brand-primary text-text font-roboto;
+}
+
+button {
+	@apply bg-purple-900 hover:bg-purple-950 text-purple-100 font-semibold py-2 px-4 rounded-lg shadow-2xs;
+}
+
+p {
+	@apply text-base leading-relaxed text-gray-100 text-pretty font-sans;
+}
+
+/* --classes-- */
+.authentication-ui {
+	@apply inline-grid grid-cols-2 gap-4 mt-5;
+  }
+
+.authentication-ui button {
+	@apply px-10 py-3;
 }

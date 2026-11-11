@@ -5,9 +5,16 @@ function App() {
 
 	return (
 		<main>
-			<div>
-				<Heading className='font-bold text-center text-6xl' title={`Hello ${username}!`}/>
-				<h2 className='font-bold text-center text-4xl'>Welcome to Track SaaS</h2>
+			<Heading 
+				title={`Hello ${username}!`} 
+				subheading='Welcome to Track SaaS' 
+				description='This is a simple Track SaaS application where you can manage your tasks efficiently.'
+			/>
+			<div className = 'flex justify-center'>
+				<div className = 'authentication-ui'>
+					<button>Log in</button>
+					<button>Sign up</button>
+				</div>
 			</div>
 		</main>
 	);
