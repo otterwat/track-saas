@@ -26,10 +26,23 @@ button:hover {
 	cursor: pointer;
 }
 
+/*-- classes --*/
+.authentication-ui {
+	@media (max-width: 768px) {
+		@apply flex items-center justify-center flex-wrap;
+	}
+	@media (min-width: 768px) {
+		@apply flex justify-between w-full;
+	}
+}
+
+.authentication-ui button{
+	@apply mt-3 px-10 py-5.5 text-2xl;
+}
 .authentication-form input {
 	@apply block w-100 mx-auto my-5 border border-white rounded px-3 py-2.5 text-left;
 }
 
 .authentication-form button {
-	@apply flex justify-center w-fit mx-auto my-5 px-35 py-3 text-2xl;
+	@apply flex justify-center w-100 mx-auto my-5 py-3 text-2xl;
 }

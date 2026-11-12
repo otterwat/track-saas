@@ -14,15 +14,15 @@ function Home() {
 
 	return (
 		<main>
-			<div className = 'flex items-start flex-wrap w-full'>
+			<div className = 'authentication-ui'>
 				<Heading 
 					title='Welcome!'
 					description='This is a simple Track SaaS application where you can manage your running and improvement efficiently.'
 				/>
 
-				<div className = 'ml-auto'>
-					<button className = 'my-1.5 px-10 py-3 text-2xl' onClick={loginClick}>login</button>
-					<button className = 'my-1.5 ml-5 mr-1.5 px-10 py-3 text-2xl' onClick={signupClick}>signup</button>
+				<div className = 'inline-grid grid-cols-2 gap-3'>
+					<button onClick={loginClick}>login</button>
+					<button className = 'mr-1.5' onClick={signupClick}>signup</button>
 				</div>
 			</div>
 			

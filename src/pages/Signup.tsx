@@ -44,11 +44,11 @@ function Signup() {
 	
 	return (
 		<main>
-			<div className = 'flex items-start w-full'>
+			<div className = 'authentication-ui'>
 				<Heading title='Signup' />
-				<div className = 'ml-auto'>
-					<button className = 'my-1.5 px-10 py-3 text-2xl' onClick={loginClick}>login</button>
-					<button className = 'my-1.5 ml-5 mr-1.5 px-10 py-3 text-2xl' onClick={homeClick}>home</button>
+				<div className = 'inline-grid grid-cols-2 gap-5'>
+					<button onClick={loginClick}>login</button>
+					<button className = 'mr-1.5' onClick={homeClick}>home</button>
 				</div>
 			</div>
 
