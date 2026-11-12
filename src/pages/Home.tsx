@@ -14,7 +14,7 @@ function Home() {
 
 	return (
 		<main>
-			<div className = 'flex items-start w-full'>
+			<div className = 'flex items-start flex-wrap w-full'>
 				<Heading 
 					title='Welcome!'
 					description='This is a simple Track SaaS application where you can manage your running and improvement efficiently.'
