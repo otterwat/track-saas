@@ -1,9 +1,19 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
-from database import Base
+from pydantic import BaseModel, ConfigDict, Field
 
-class FruitDB(Base):
-    __tablename__ = "fruits"   # the table's name in Postgres
+class UserCreate(BaseModel):
+    username: str = Field(min_length=3, max_length=50)
+    password: str = Field(min_length=8, max_length=50)
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(100))
+
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
+
+class UserRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    username: str

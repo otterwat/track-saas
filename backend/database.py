@@ -1,26 +1,32 @@
 import os
 from dotenv import load_dotenv
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, DeclarativeBase
+from sqlalchemy import Integer, String, create_engine
+from sqlalchemy.orm import Mapped, mapped_column, sessionmaker, DeclarativeBase
 
-load_dotenv()  # reads the .env file into environment variables
+load_dotenv()
 
+print(os.getenv("DATABASE_URL"))
 DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable is not set.")
 
-# The engine is the actual connection to Neon.
-# pool_pre_ping checks a connection is still alive before using it,
-# because Neon can pause idle databases.
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
-
-# A session is one "conversation" with the database (a batch of reads/writes).
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
 
-# Every table class will inherit from this.
+# classes
 class Base(DeclarativeBase):
     pass
 
-# FastAPI will call this for each request to give your route a session,
-# then close it afterwards.
+class Users(Base):
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    username: Mapped[str] = mapped_column(String(50), nullable=False, unique=True)
+    passwordHash: Mapped[str] = mapped_column(String(), nullable=False)
+
+
+
+# session
 def get_db():
     db = SessionLocal()
     try:
