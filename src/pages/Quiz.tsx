@@ -2,23 +2,19 @@ import { useState } from 'react';
 import { questions } from '../components/Questions';
 
 function Quiz() {
-  // --- STATE ---
-  // useState returns [currentValue, functionToChangeIt].
+  // states
   const [currentIndex, setCurrentIndex] = useState(0);        // which question
-  const [selected, setSelected] = useState<number | null>(null); // clicked option (null = none yet)
-  const [answers, setAnswers] = useState<number[]>([]);       // every confirmed answer
+  const [selected, setSelected] = useState<number | null>(null); // clicked option
+  const [answers, setAnswers] = useState<number[]>([]);       // confirmed answers
   const isFinished = currentIndex >= questions.length;
   const storedUserId = Number(localStorage.getItem("user_id")) || 1;
 
   async function submitQuiz(finalAnswers: number[]) {
     try {
-      // Adjust the URL/port to match your backend (e.g., FastAPI on 8000)
       const response = await fetch("http://localhost:8000/api/quiz", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // If you use JWT tokens from Login/Signup, include the header here:
-          // "Authorization": `Bearer ${localStorage.getItem("token")}`
         },
 
         body: JSON.stringify({
@@ -101,7 +97,6 @@ function Quiz() {
       >
         {isLast ? 'Finish' : 'Next'}
       </button>
-      <p>{answers}</p>
     </div>
   );
 }
