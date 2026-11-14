@@ -1,5 +1,5 @@
-from sqlalchemy import String
-from sqlalchemy.orm import Mapped, mapped_column
+from typing import List
+
 from pydantic import BaseModel, ConfigDict, Field
 
 class UserCreate(BaseModel):
@@ -17,3 +17,8 @@ class UserRead(BaseModel):
 
     id: int
     username: str
+
+
+class QuizSubmission(BaseModel):
+    user_id: int
+    answers: List[int]

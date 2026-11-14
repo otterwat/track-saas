@@ -7,8 +7,8 @@ import hashlib
 import hmac
 import secrets
 
-from database import Users, engine, get_db, Base
-from models import UserCreate, UserLogin, UserRead
+from database import Users, Quiz, engine, get_db, Base
+from models import UserCreate, UserLogin, UserRead, QuizSubmission
 
 def hash_password(password: str) -> str:
     salt = secrets.token_bytes(16)
@@ -28,7 +28,7 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
         return False
 
 app = FastAPI()
-#Run uvicorn main:app --reload --port 8000 in dev to run the server, separate from frontend
+#Run uvicorn main:app --reload --port 8000 in /backend to run the server in dev, separate from frontend
 
 origins = [
     "http://localhost:5173",
@@ -77,6 +77,35 @@ def loginUser(user: UserLogin, db: Session = Depends(get_db)):
         )
 
     return existingUser
+
+@app.post("/api/quiz")
+def create_quiz_entry(submission: QuizSubmission, db: Session = Depends(get_db)):
+    existing_quiz = db.query(Quiz).filter(Quiz.user_id == submission.user_id).first()
+    if existing_quiz:
+        existing_quiz.selected_answers = submission.answers
+        db.commit()
+        db.refresh(existing_quiz)
+        
+        return {
+            "message": "Quiz saved successfully",
+            "quiz_id": existing_quiz.id,
+            "saved_answers": existing_quiz.selected_answers
+        }
+    else:
+        new_quiz = Quiz(
+            user_id=submission.user_id,
+            selected_answers=submission.answers
+        )
+
+        db.add(new_quiz)
+        db.commit()
+        db.refresh(new_quiz)
+
+        return {
+            "message": "Quiz saved successfully",
+            "quiz_id": new_quiz.id,
+            "saved_answers": new_quiz.selected_answers
+        }
 
 # ---- mount frontend ----
 static_dir = "static"
