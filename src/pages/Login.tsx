@@ -47,8 +47,8 @@ function Login() {
 			<div className = 'authentication-ui'>
 				<Heading title='Login' />
 				<div className = 'inline-grid grid-cols-2 gap-3'>
-					<button onClick={signupClick}>signup</button>
-					<button className = 'mr-1.5' onClick={homeClick}>home</button>
+					<button className = 'btn' onClick={signupClick}>signup</button>
+					<button className = 'btn mr-1.5' onClick={homeClick}>home</button>
 				</div>
 			</div>
 
@@ -65,7 +65,7 @@ function Login() {
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 				></input>
-				<button type='submit'>login</button>
+				<button className = 'btn' type='submit'>login</button>
 				{error && <p className='text-red-600'>{error}</p>}
 			</form>
 		</main>

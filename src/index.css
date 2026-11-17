@@ -12,18 +12,18 @@ body {
 	@apply bg-brand-primary text-text font-roboto;
 }
 
-button {
-	@apply bg-purple-900 text-purple-100 font-semibold rounded-lg shadow-2xs;
-}
-
 p {
 	@apply text-base leading-relaxed text-gray-100 text-pretty font-sans;
 }
 
-/* -- pseudo classes -- */
-button:hover {
-	@apply bg-purple-950;
-	cursor: pointer;
+@layer components {
+  .btn {
+    @apply bg-purple-900 text-purple-100 font-semibold rounded-lg shadow-2xs;
+  }
+
+  .btn:hover {
+	@apply bg-purple-950 cursor-pointer;
+  }
 }
 
 /*-- classes --*/

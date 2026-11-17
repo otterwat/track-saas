@@ -8,6 +8,7 @@ from database import Base, engine
 from routers import auth, quiz
 
 app = FastAPI()
+#run uvicorn main:app --app-dir backend --reload --port 8000 in root to activate database in dev
 
 origins = [
     origin.strip()

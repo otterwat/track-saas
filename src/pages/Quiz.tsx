@@ -79,9 +79,9 @@ function Quiz() {
           <button
             key={option}                      // React needs a unique key in lists
             onClick={() => setSelected(index)}
-            className={`px-4 py-2 rounded border text-left ${
+            className={`btn px-4 py-2 rounded border text-left text-gray-700 ${
               selected === index
-                ? 'bg-blue-600 text-white border-blue-600'   // selected
+                ? 'bg-blue-600 border-blue-600'   // selected
                 : 'bg-white hover:bg-gray-100'
             }`}
           >
@@ -93,7 +93,7 @@ function Quiz() {
       <button
         onClick={handleNext}
         disabled={selected === null}
-        className="mt-4 px-4 py-2 rounded bg-green-600 text-white disabled:opacity-40"
+        className="btn mt-4 px-4 py-2 rounded bg-green-600 text-white disabled:opacity-40"
       >
         {isLast ? 'Finish' : 'Next'}
       </button>

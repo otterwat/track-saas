@@ -6,12 +6,15 @@ function Dashboard() {
 	function quizClick() {
 		navigate('/quiz');
 	}	
-
+	function logoutClick() {
+		navigate('/');
+	}
 
 	return (
 		<main>
 			<Heading title='Dashboard' />
-			<button className="px-10 py-2 rounded bg-blue-600 text-white" onClick={quizClick}>Take Quiz</button>
+			<button className="btn mx-5 mt-5 px-10 py-2  rounded" onClick={quizClick}>Take Quiz</button>
+			<button className="btn mt-5 px-10 py-2 rounded bg-red-600 text-white" onClick={logoutClick}>Logout</button>
 		</main>
 	);
 }

@@ -21,8 +21,8 @@ function Home() {
 				/>
 
 				<div className = 'inline-grid grid-cols-2 gap-3'>
-					<button onClick={loginClick}>login</button>
-					<button className = 'mr-1.5' onClick={signupClick}>signup</button>
+					<button className = 'btn' onClick={loginClick}>login</button>
+					<button className = 'btn mr-1.5' onClick={signupClick}>signup</button>
 				</div>
 			</div>
 			
