@@ -7,17 +7,32 @@ export type Question = {
 export const questions: Question[] = [
   {
     id: 1,
-    text: 'testing',
-    options: ['0', '1', '2', '3'],
+    text: 'What level of running experience do you have?',
+    options: [
+      'Never ran in my life', 
+      '1', 
+      '2', 
+      '3'
+    ],
   },
   {
     id: 2,
     text: 'testing',
-    options: ['0', '1', '2', '3'],
+    options: [
+      '0', 
+      '1', 
+      '2', 
+      '3'
+    ],
   },
   {
     id: 3,
     text: 'testing',
-    options: ['0', '1', '2', '3'],
+    options: [
+      '0', 
+      '1', 
+      '2', 
+      '3'
+    ],
   },
 ];
