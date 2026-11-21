@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { questions } from '../components/Questions';
+import { useNavigate } from 'react-router-dom';
 
 function Quiz() {
   // states
@@ -8,6 +9,11 @@ function Quiz() {
   const [answers, setAnswers] = useState<number[]>([]);       // confirmed answers
   const isFinished = currentIndex >= questions.length;
   const storedUserId = Number(localStorage.getItem("user_id")) || 1;
+
+  const navigate = useNavigate();
+	function dashboardClick() {
+		navigate('/dashboard');
+	}
 
   async function submitQuiz(finalAnswers: number[]) {
     try {
@@ -35,7 +41,6 @@ function Quiz() {
   }
 
   const isLast = currentIndex === questions.length - 1;
-
   // Update your existing handleNext function:
   async function handleNext() {
     if (selected === null) return;
@@ -60,13 +65,13 @@ function Quiz() {
         <h2 className="text-2xl font-bold mb-4">
           Quiz complete!
         </h2>
+        <button className="btn mx-5 mt-5 px-10 py-2  rounded" onClick={dashboardClick}>Return to Dashboard</button>
       </div>
     );
   }
 
   // current question
   const question = questions[currentIndex];
-
   return (
     <div className="max-w-md mx-auto p-6">
       <p className="text-sm text-gray-500 mb-2">
@@ -79,10 +84,10 @@ function Quiz() {
           <button
             key={option}                      // React needs a unique key in lists
             onClick={() => setSelected(index)}
-            className={`btn px-4 py-2 rounded border text-left text-gray-700 ${
+            className={`btn px-4 py-2 rounded border text-left  ${
               selected === index
-                ? 'bg-blue-600 border-blue-600'   // selected
-                : 'bg-white hover:bg-gray-100'
+                ? 'bg-blue-600 border-blue-600 text-gray-200'   // selected
+                : 'bg-white hover:bg-gray-100 text-gray-700'
             }`}
           >
             {option}

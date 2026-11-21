@@ -46,3 +46,11 @@ p {
 .authentication-form button {
 	@apply flex justify-center w-100 mx-auto my-5 py-3 text-2xl;
 }
+
+.logout-button {
+	@apply mt-5 px-10 py-2 rounded bg-red-600 text-white font-semibold shadow-2xs;
+
+	&:hover {
+		@apply bg-red-900 cursor-pointer;
+	}
+}
